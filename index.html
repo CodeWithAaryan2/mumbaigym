@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Mumbai Fitness Club | Premium Gym in Mumbai</title>
+  <meta name="description" content="Experience Mumbai's most luxurious fitness club. State-of-the-art equipment, elite trainers, and transformative results. Start your journey today.">
+  <meta name="keywords" content="Mumbai Gym, Fitness Club, Personal Training, Luxury Gym Mumbai">
+  <meta name="author" content="Mumbai Fitness Club">
+  <!-- Preconnect for Google Fonts & Font Awesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- AOS Library for scroll animations -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0a0a0a;
+      color: #e5e5e5;
+      scroll-behavior: smooth;
+      line-height: 1.5;
+    }
+
+    /* Dark Luxury Theme */
+    :root {
+      --gold: #c9a03d;
+      --gold-light: #e0b354;
+      --dark-bg: #050505;
+      --card-bg: #111111;
+      --border-dim: #222;
+      --text-muted: #aaaaaa;
+      --white: #ffffff;
+      --shadow-lg: 0 25px 35px -12px rgba(0,0,0,0.6);
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(5, 5, 5, 0.9);
+      backdrop-filter: blur(12px);
+      z-index: 1000;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(201, 160, 61, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #fff, var(--gold));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #ddd;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--gold);
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: var(--gold);
+    }
+
+    /* Buttons & CTA */
+    .btn-primary {
+      background: linear-gradient(95deg, var(--gold), #b8860b);
+      border: none;
+      padding: 12px 28px;
+      border-radius: 40px;
+      font-weight: 700;
+      font-size: 1rem;
+      color: #0a0a0a;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: inline-block;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 20px -10px rgba(201, 160, 61, 0.5);
+      background: linear-gradient(95deg, #dbb042, #c9a03d);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--gold);
+      padding: 10px 26px;
+      border-radius: 40px;
+      font-weight: 600;
+      color: var(--gold);
+      transition: 0.3s;
+      text-decoration: none;
+    }
+
+    .btn-outline:hover {
+      background: var(--gold);
+      color: #0a0a0a;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(107deg, #000000 0%, #0c0b0a 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero:before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format') no-repeat center center/cover;
+      opacity: 0.2;
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+    }
+
+    .hero h1 {
+      font-size: 3.8rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero .gold-text {
+      color: var(--gold);
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      color: #ccc;
+    }
+
+    /* Section general */
+    section {
+      padding: 90px 0;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 3rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .section-title:after {
+      content: '';
+      display: block;
+      width: 70px;
+      height: 3px;
+      background: var(--gold);
+      margin: 16px auto 0;
+    }
+
+    /* Membership Cards */
+    .membership-grid, .trainers-grid, .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 28px;
+      padding: 2rem 1.8rem;
+      transition: 0.3s ease;
+      border: 1px solid #222;
+      text-align: center;
+      backdrop-filter: blur(2px);
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: var(--gold);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .price {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--gold);
+      margin: 1rem 0;
+    }
+
+    .feature-list {
+      list-style: none;
+      margin: 1.5rem 0;
+    }
+
+    .feature-list li {
+      margin: 0.7rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    /* Trainers */
+    .trainer-img {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      border: 3px solid var(--gold);
+    }
+
+    .trainer-name {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    /* Testimonials */
+    .testimonial {
+      background: #0f0f0f;
+      padding: 2rem;
+      border-radius: 28px;
+      border-left: 4px solid var(--gold);
+    }
+
+    .stars {
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    /* Transformation Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      aspect-ratio: 4/5;
+      cursor: pointer;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.5s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.06);
+    }
+
+    .overlay-badge {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(4px);
+      padding: 4px 12px;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--gold);
+    }
+
+    /* Contact & Maps */
+    .contact-map-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      background: var(--card-bg);
+      border-radius: 36px;
+      overflow: hidden;
+      border: 1px solid #222;
+      padding: 2rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 14px 18px;
+      background: #1a1a1a;
+      border: 1px solid #333;
+      border-radius: 24px;
+      color: white;
+      font-family: inherit;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+    }
+
+    .map-container {
+      border-radius: 24px;
+      overflow: hidden;
+      height: 100%;
+      min-height: 320px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* WhatsApp floating button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: #25D366;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+      transition: 0.2s;
+      z-index: 999;
+      text-decoration: none;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.08);
+      background: #20b959;
+    }
+
+    footer {
+      background: #020202;
+      text-align: center;
+      padding: 2rem;
+      border-top: 1px solid #222;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 992px) {
+      .hero h1 { font-size: 2.7rem; }
+      .contact-map-wrapper { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle { display: block; }
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 70%;
+        height: calc(100vh - 70px);
+        background: #0a0a0a;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 3rem;
+        transition: 0.4s;
+        border-right: 1px solid var(--gold);
+        gap: 2rem;
+      }
+      .nav-links.active {
+        left: 0;
+      }
+      .section-title { font-size: 2rem; }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 2rem; }
+      .btn-primary, .btn-outline { padding: 10px 20px; font-size: 0.9rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav id="navbar">
+    <div class="container nav-container">
+      <div class="logo">Mumbai Fitness Club</div>
+      <div class="menu-toggle" id="mobile-menu">
+        <i class="fas fa-bars"></i>
+      </div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#membership" class="nav-link">Membership</a></li>
+        <li><a href="#trainers" class="nav-link">Trainers</a></li>
+        <li><a href="#testimonials" class="nav-link">Stories</a></li>
+        <li><a href="#gallery" class="nav-link">Gallery</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="container hero-content" data-aos="fade-up" data-aos-duration="1000">
+      <h1>Transform Beyond Limits.<br><span class="gold-text">Start Your Fitness Journey Today</span></h1>
+      <p>Elite coaching, state-of-the-art equipment, and a luxury atmosphere in the heart of Mumbai. Achieve your best self.</p>
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+        <a href="#membership" class="btn-primary">Join Now →</a>
+        <a href="#contact" class="btn-outline">Free Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Membership Plans Section -->
+  <section id="membership">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Elite Membership Plans</h2>
+      <div class="membership-grid">
+        <div class="card" data-aos="zoom-in" data-aos-delay="100">
+          <i class="fas fa-dumbbell" style="font-size: 2.5rem; color: var(--gold);"></i>
+          <h3 style="margin-top: 1rem;">Starter</h3>
+          <div class="price">₹2,499<span style="font-size: 1rem;">/mo</span></div>
+          <ul class="feature-list">
+            <li><i class="fas fa-check-circle" style="color: var(--gold);"></i> Full Gym Access</li>
+            <li><i class="fas fa-check-circle" style="color: var(--gold);"></i> 1 Group Class/week</li>
+            <li><i class="fas fa-check-circle" style="color: var(--gold);"></i> Locker Room & Sauna</li>
+          </ul>
+          <a href="#contact" class="btn-primary" style="padding: 8px 20px;">Get Started</a>
+        </div>
+        <div class="card" data-aos="zoom-in" data-aos-delay="200">
+          <i class="fas fa-crown" style="font-size: 2.5rem; color: var(--gold);"></i>
+          <h3 style="margin-top: 1rem;">Premium Elite</h3>
+          <div class="price">₹4,999<span style="font-size: 1rem;">/mo</span></div>
+          <ul class="feature-list">
+            <li><i class="fas fa-check-circle"></i> Unlimited Classes (Yoga, HIIT)</li>
+            <li><i class="fas fa-check-circle"></i> Personal Trainer (2x/month)</li>
+            <li><i class="fas fa-check-circle"></i> Nutrition Plan + Recovery Zone</li>
+            <li><i class="fas fa-check-circle"></i> Guest Passes</li>
+          </ul>
+          <a href="#contact" class="btn-primary" style="padding: 8px 20px;">Claim Offer</a>
+        </div>
+        <div class="card" data-aos="zoom-in" data-aos-delay="300">
+          <i class="fas fa-chalkboard-user" style="font-size: 2.5rem; color: var(--gold);"></i>
+          <h3 style="margin-top: 1rem;">Annual Pro</h3>
+          <div class="price">₹44,999<span style="font-size: 1rem;">/year</span></div>
+          <ul class="feature-list">
+            <li><i class="fas fa-check-circle"></i> 1-on-1 PT (Weekly)</li>
+            <li><i class="fas fa-check-circle"></i> Body Composition Analysis</li>
+            <li><i class="fas fa-check-circle"></i> 2 Premium Guest Passes</li>
+            <li><i class="fas fa-check-circle"></i> Priority Class Booking</li>
+          </ul>
+          <a href="#contact" class="btn-primary" style="padding: 8px 20px;">Best Value</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trainers Showcase -->
+  <section id="trainers" style="background: #070707;">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Elite Coaching Team</h2>
+      <div class="trainers-grid">
+        <div class="card" data-aos="flip-left">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Trainer Vikram" class="trainer-img">
+          <h3 class="trainer-name">Vikram Rathore</h3>
+          <p style="color: var(--gold);">Head Strength Coach</p>
+          <p>10+ years, certified specialist in functional training & body transformation.</p>
+        </div>
+        <div class="card" data-aos="flip-left" data-aos-delay="100">
+          <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Trainer Neha" class="trainer-img">
+          <h3 class="trainer-name">Neha Sharma</h3>
+          <p style="color: var(--gold);">Yoga & Mobility Expert</p>
+          <p>Holistic wellness & athletic recovery, international yoga alliance certified.</p>
+        </div>
+        <div class="card" data-aos="flip-left" data-aos-delay="200">
+          <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Trainer Rajat" class="trainer-img">
+          <h3 class="trainer-name">Rajat Malhotra</h3>
+          <p style="color: var(--gold);">Nutrition & HIIT Specialist</p>
+          <p>Precision nutrition and high-intensity interval training expert.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Success Stories / Testimonials -->
+  <section id="testimonials">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Real Transformations</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial" data-aos="fade-right">
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p>"The atmosphere pushes you to your limits. Lost 12 kg in 4 months with coach Vikram. Best decision of 2024!"</p>
+          <h4 style="margin-top: 1rem;">- Priya Mehta</h4>
+        </div>
+        <div class="testimonial" data-aos="fade-up">
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p>"Mumbai Fitness Club is not just a gym; it's a community. Premium equipment and amazing personal training."</p>
+          <h4 style="margin-top: 1rem;">- Karan Shah</h4>
+        </div>
+        <div class="testimonial" data-aos="fade-left">
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p>"Joined for the luxury, stayed for the results. Their nutrition plan changed my lifestyle completely."</p>
+          <h4 style="margin-top: 1rem;">- Anjali Nair</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Transformation Gallery -->
+  <section id="gallery" style="background: #070707;">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Transformation Gallery</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item" data-aos="zoom-in">
+          <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=2070&auto=format" alt="before after transformation">
+          <div class="overlay-badge">-15kg • 3 months</div>
+        </div>
+        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
+          <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=2070&auto=format" alt="fitness transformation">
+          <div class="overlay-badge">Strength +40% • 6 months</div>
+        </div>
+        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
+          <img src="https://images.unsplash.com/photo-1546483875-ad9014c88eba?q=80&w=2182&auto=format" alt="athletic transformation">
+          <div class="overlay-badge">Muscle Gain • 8 months</div>
+        </div>
+        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300">
+          <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=2070&auto=format" alt="gym transformation">
+          <div class="overlay-badge">Body Recomposition</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact + Google Maps Section -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Begin Your Evolution</h2>
+      <div class="contact-map-wrapper" data-aos="fade-up">
+        <div>
+          <h3 style="margin-bottom: 1.5rem;">Request a Callback</h3>
+          <form id="contactForm">
+            <div class="form-group">
+              <input type="text" id="name" placeholder="Full Name" required>
+            </div>
+            <div class="form-group">
+              <input type="email" id="email" placeholder="Email Address" required>
+            </div>
+            <div class="form-group">
+              <input type="tel" id="phone" placeholder="Mobile Number" required>
+            </div>
+            <div class="form-group">
+              <textarea rows="3" placeholder="Your fitness goals..."></textarea>
+            </div>
+            <button type="submit" class="btn-primary" style="width: 100%;">Send Inquiry →</button>
+            <p id="formStatus" style="margin-top: 12px; font-size: 0.8rem; color: var(--gold);"></p>
+          </form>
+        </div>
+        <div>
+          <h3 style="margin-bottom: 1rem;">Visit Our Flagship Studio</h3>
+          <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3774.107162952494!2d72.82946581481535!3d19.03492948710728!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c90cc3f2d1d5%3A0x7f8e4a2c5e1a6b0d!2sBandra%20West%2C%20Mumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1650000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          <p style="margin-top: 15px;"><i class="fas fa-map-marker-alt" style="color: var(--gold);"></i> 3rd Floor, Link Road, Bandra West, Mumbai - 400050</p>
+          <p><i class="fas fa-clock"></i> Open Daily: 5:00 AM – 12:00 AM</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Mumbai Fitness Club — Empowering Champions. <i class="fas fa-heart" style="color: var(--gold);"></i> Luxury Fitness Redefined.</p>
+  </footer>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/919820123456?text=Hello%20Mumbai%20Fitness%20Club%2C%20I%20want%20to%20start%20my%20fitness%20journey!" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Scripts: AOS, Smooth Scroll, Mobile Menu, Form Handling -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // Init AOS for modern scroll animations
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 80
+    });
+
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('mobile-menu');
+    const navLinks = document.getElementById('nav-links');
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // Smooth scrolling for all anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          navLinks.classList.remove('active');
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Navbar background change on scroll
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.style.background = 'rgba(0,0,0,0.95)';
+        navbar.style.backdropFilter = 'blur(16px)';
+      } else {
+        navbar.style.background = 'rgba(5, 5, 5, 0.9)';
+      }
+    });
+
+    // Contact form handling: Simulate high-conversion message
+    const contactForm = document.getElementById('contactForm');
+    const formStatus = document.getElementById('formStatus');
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      if (!name || !email || !phone) {
+        formStatus.innerHTML = "Please fill all required fields.";
+        formStatus.style.color = "#e0b354";
+        return;
+      }
+      formStatus.innerHTML = "✓ Thank you! Our fitness consultant will reach out shortly.";
+      formStatus.style.color = "#c9a03d";
+      contactForm.reset();
+      setTimeout(() => { formStatus.innerHTML = ""; }, 4000);
+    });
+
+    // Active nav link highlight on scroll
+    const sections = document.querySelectorAll('section');
+    const navItems = document.querySelectorAll('.nav-link');
+    window.addEventListener('scroll', () => {
+      let current = "";
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 120;
+        if (scrollY >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
+      navItems.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
